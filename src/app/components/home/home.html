@@ -1,2 +1,13 @@
-<h3>Home Component</h3>
-<p>Welcome to Angular Seed</p>
+<h3>Repo list</h3>
+<ul>
+  <li *ngFor="#repo of repos | async">
+      {{repo.date}}
+    <ul>
+      <li *ngFor="#a of repo.acts">
+        {{a.title}}
+      </li>
+    </ul>
+    <!--{{repo.period.start.toLocaleDateString()}}-->
+    <!--{{repo.period.start.toLocaleTimeString()}}-{{repo.period.end.toLocaleTimeString()}}-->
+  </li>
+</ul>

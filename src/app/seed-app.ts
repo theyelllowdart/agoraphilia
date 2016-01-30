@@ -13,12 +13,11 @@ import {RepoBrowser} from './components/repo-browser/repo-browser';
   pipes: []
 })
 @RouteConfig([
-  new Route({ path: '/home', component: Home, name: 'Home', useAsDefault: true}),
-  new Route({ path: '/about', component: About, name: 'About'}),
-  new Route({ path: '/github/...', component: RepoBrowser, name: 'RepoBrowser'})
+  new Route({path: '/home', component: Home, name: 'Home', useAsDefault: true}),
+  new Route({path: '/about', component: About, name: 'About'}),
+  new Route({path: '/github/...', component: RepoBrowser, name: 'RepoBrowser'})
 ])
 export class SeedApp {
-
-  constructor() {}
-
+  constructor() {
+  }
 }

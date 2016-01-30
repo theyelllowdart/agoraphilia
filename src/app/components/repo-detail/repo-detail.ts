@@ -13,11 +13,12 @@ import {Github} from '../../services/github';
 })
 export class RepoDetail {
   repoDetails = {};
-  constructor(routeParams:RouteParams, github: Github) {
-    github.getRepoForOrg(routeParams.get('org'),routeParams.get('name'))
-      .subscribe(repoDetails => {
-        this.repoDetails = repoDetails;
-      });
+
+  constructor(routeParams:RouteParams, github:Github) {
+    //github.getRepoForOrg(routeParams.get('org'), routeParams.get('name'))
+    //  .subscribe(repoDetails => {
+    //    this.repoDetails = repoDetails;
+    //  });
   }
 
 }

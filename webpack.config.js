@@ -4,7 +4,12 @@ var path = require('path');
 module.exports = {
   entry: {
     'app': './src/app.ts',
-    'vendor': './src/vendor.ts'
+    'vendor': [
+      './src/vendor.ts',
+      './node_modules/jquery/dist/jquery.js',
+      './node_modules/lodash/index.js',
+      './node_modules/moment/moment.js'
+    ]
   },
   output: {
     path: "./dist",
@@ -15,17 +20,21 @@ module.exports = {
   ],
 
   resolve: {
-    extensions: ['', '.ts', '.js']
+    extensions: ['', '.ts', '.js'],
+    alias: {
+      jquery: "jquery/src/jquery"
+    }
   },
 
   module: {
     loaders: [
-      { test: /\.ts$/, loader: 'ts-loader' },
+      {test: /\.ts$/, loader: 'ts-loader'}
     ],
-    noParse: [ path.join(__dirname, 'node_modules', 'angular2', 'bundles') ]
+    noParse: [path.join(__dirname, 'node_modules', 'angular2', 'bundles')]
   },
 
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    headers: {"Access-Control-Allow-Origin": "*"}
   }
 };
