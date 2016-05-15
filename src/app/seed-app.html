@@ -1,9 +1,38 @@
-<h3>Angular2 Seed</h3>
-<div>
-	<a [routerLink]="['/Home']">Home</a>
-	<a [routerLink]="['/About']">About</a>
-	<a [routerLink]="['/RepoBrowser/RepoList', {org: 'angular'}]">Github Repos</a>
+<div class="row" hidden>
+  <div class="col-md-12">
+    <div class="jumbotron">
+      <input type="text" class="form-control" placeholder="Search">
+
+    </div>
+  </div>
 </div>
-<div>
-	<router-outlet></router-outlet>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h4>Sunday, May 14, 2016</h4>
+    </div>
+  </div>
+</div>
+
+<div *ngFor="#section of sections | async">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>{{section.id}}</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+       <div *ngFor="#event of section.events" style="float:left;margin-left: 5px;width: 310px;">
+        <iframe src="http://www.youtube.com/embed/{{event.youtubeVideoId}}?controls=2"
+                style="background-color: black; width: 304px;height: 180px;"></iframe>
+        <div class="caption">
+          <h5>{{event.title}}</h5>
+          <movie-detail *ngIf="section.id == 'Movie'" [event]="event"></movie-detail>
+          <button class="btn btn-danger">Dismiss</button>
+          <button class="btn btn-primary">I'm Going</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
